@@ -1,0 +1,135 @@
+def isModule = modularName == project.name
+println("modularName $modularName ${project.name} $isModule")
+if (isModule){
+    apply plugin: 'com.android.application'
+}else{
+    apply plugin: 'com.android.library'
+}
+
+apply plugin: 'kotlin-android'
+//apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+kapt {
+    arguments {
+        arg('eventBusIndex','com.wbroker.stock.MyEventBusIndex')
+        arg("AROUTER_MODULE_NAME", project.getName())
+    }
+}
+
+android {
+    compileSdkVersion rootProject.ext.compileSdk
+    buildToolsVersion rootProject.ext.buildTools
+
+    defaultConfig {
+        if(isModule){
+            applicationId "com.king.template.${project.name}"
+        }
+
+        minSdkVersion rootProject.ext.minSdk
+        targetSdkVersion rootProject.ext.targetSdk
+        versionCode rootProject.ext.appVersionCode
+        versionName rootProject.ext.appVersionName
+
+//        buildConfigField "String", "versionName", "\"${rootProject.ext.appVersionName}\""
+//        buildConfigField "int", "versionCode", rootProject.ext.appVersionCode
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+
+        ndk {
+            //设置支持的SO库架构（开发者可以根据需要，选择一个或多个平台的so）
+            abiFilters "armeabi-v7a", "arm64-v8a"//, "x86","x86_64"
+        }
+
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*.kotlin_module'
+        pickFirst '**/*.so'
+    }
+
+    if(isModule){
+        signingConfigs {
+            config  {
+                //读取配置文件
+                storeFile file("$rootDir/gfile/sign.keystore")
+                keyAlias rootProject.ext.keyAlias
+                keyPassword rootProject.ext.keyPassword
+                storePassword rootProject.ext.storePassword
+            }
+
+        }
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            if (rootProject.ext.signingEnabled && isModule) {
+                signingConfig signingConfigs.config
+            }
+        }
+        debug{
+
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+        warning 'InvalidPackage'
+    }
+
+    buildFeatures {
+        dataBinding = true
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            // 判断是否模块化, 加载不同的 AndroidManifest
+            if (isModule && project.name != "app") {
+                manifest.srcFile "src/main/manifest/AndroidManifest.xml"
+                if (!manifest.srcFile.exists()) { // 解决没 buildSrc/xml 文件无法 sync、clean 操作
+                    println("${project.name} manifest 不存在")
+
+                    manifest.srcFile "src/main/AndroidManifest.xml"
+                }else{
+                    println("${project.name} manifest 存在")
+                }
+            } else {
+                manifest.srcFile "src/main/AndroidManifest.xml"
+            }
+        }
+    }
+}
+
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+    //hilt
+    implementation "com.google.dagger:hilt-android:$versions.daggerHilt"
+    kapt "com.google.dagger:hilt-compiler:$versions.daggerHilt"
+    if(isModule){
+        implementation project(":lib_common")
+    }else{
+        compileOnly project(":lib_common")
+    }
+    kapt 'com.alibaba:arouter-compiler:1.5.2'
+}
+
+if(isModule){
+    apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+}
+

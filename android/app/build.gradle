@@ -1,0 +1,93 @@
+apply from: file("$rootDir/gfile/build_module.gradle")
+def isModule = modularName == project.name
+
+android {
+    compileSdkVersion rootProject.ext.compileSdk
+    buildToolsVersion buildTools
+
+    if(isModule){
+        defaultConfig {
+            applicationId "com.king.template"
+        }
+    }
+
+}
+
+dependencies {
+    implementation "com.google.android.material:material:$versions.material"
+    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
+
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.androidExtJunit"
+    androidTestImplementation "androidx.test:runner:$versions.runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlinxCoroutines"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$versions.lifecycleKtx"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycleKtx"
+
+    //lifecycle
+    kapt "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+    //room
+    kapt "androidx.room:room-compiler:$versions.room"
+
+    implementation "com.github.jenly1314:mvvmframe:$versions.mvvmframe"
+    //app-updater
+    implementation "com.github.jenly1314.AppUpdater:app-updater:$versions.appUpdater"
+    //app-dialog
+    implementation "com.github.jenly1314.AppUpdater:app-dialog:$versions.appUpdater"
+
+    implementation "com.king.thread:nevercrash:$versions.nevercrash"
+
+    implementation "com.king.base:util:$versions.base"
+    implementation "com.king.base:adapter:$versions.base"
+
+    implementation "com.github.jenly1314:BaseUrlManager:$versions.baseUrlManager"
+
+    implementation "com.orhanobut:logger:$versions.logger"
+
+    implementation "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.brvah"
+
+    implementation "io.github.scwang90:refresh-layout-kernel:$versions.smartRefreshLayout"
+    implementation "io.github.scwang90:refresh-header-material:$versions.smartRefreshLayout"
+    implementation "io.github.scwang90:refresh-footer-classics:$versions.smartRefreshLayout"
+//    implementation "io.github.scwang90:SmartRefreshLayout:$versions.smartRefreshLayout"
+//    implementation "io.github.scwang90:SmartRefreshHeader:$versions.smartRefreshLayout"
+
+    implementation "com.github.bumptech.glide:glide:$versions.glide"
+    kapt "com.github.bumptech.glide:compiler:$versions.glide"
+
+    implementation "com.tencent:mmkv:$versions.mmkv"
+
+//    implementation "com.github.tbruyelle:rxpermissions:$versions.rxpermissions"
+
+
+    implementation "com.tencent.tinker:tinker-android-lib:$versions.tinker"
+
+    implementation "androidx.multidex:multidex:$versions.multidex"
+
+    //leakCanary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+
+    implementation "com.github.GrenderG:Toasty:$versions.toasty"
+
+    implementation "de.hdodenhof:circleimageview:$versions.circleimageview"
+
+    implementation "io.github.youth5201314:banner:$versions.banner"
+
+    implementation "me.jessyan:autosize:$versions.autosize"
+
+    implementation "io.github.androidktx:android-ktx:$versions.androidktx"
+
+    implementation "com.github.jenly1314:kvcache:$versions.kvcache"
+
+    implementation "com.king.image:imageviewer:$versions.imageviewer"
+
+    if (isModule){
+        implementation project(':module_rn')
+        implementation project(':lib_umeng')
+    }
+
+}

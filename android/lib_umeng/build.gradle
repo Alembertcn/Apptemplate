@@ -1,0 +1,14 @@
+apply from: file("$rootDir/gfile/build_module.gradle")
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin"
+    testImplementation "junit:junit:$versions.junit"
+    androidTestImplementation "androidx.test.ext:junit:$versions.androidExtJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espressoCore"
+
+    // 友盟基础组件库（所有友盟业务SDK都依赖基础组件库）
+    api "com.umeng.umsdk:common:9.4.4" //（必选）
+    api "com.umeng.umsdk:asms:1.4.1" // asms包依赖(必选)
+    api 'com.umeng.umsdk:apm:1.5.2' // 错误分析升级为独立SDK，看crash数据请一定集成，可选
+}
