@@ -1,4 +1,4 @@
-**AppTemplate** 是一个App快速构建模板[Demo App](https://github.com/Alembertcn/AppTemplate/raw/master/app/release/app-release.apk)
+**AppTemplate** 是一个App快速构建模板[Demo App](https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/app-release.apk)
 
 ## 相关介绍
 
