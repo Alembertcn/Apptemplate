@@ -35,7 +35,7 @@
 如果您喜欢AppTemplate，或感觉AppTemplate帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢 :smiley:<p>
 您也可以扫描下面的二维码，请作者喝杯咖啡 :coffee:
 <div>
-<img src="https://jenly1314.github.io/image/pay/sponsor.png" width="98%">
+<img src="https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/wx_pay.png" width="100%">
 </div>
 
 ## 关于我
