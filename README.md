@@ -1,4 +1,4 @@
-**AppTemplate** 是一个App快速构建模板[Demo App](https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/app-release.apk)
+![dashang](https://github.com/Alembertcn/Apptemplate/assets/20818159/0397c121-8b6e-4cdb-bc8b-f4c5d80d6985)**AppTemplate** 是一个App快速构建模板[Demo App](https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/app-release.apk)
 
 ## 相关介绍
 
@@ -25,5 +25,5 @@
 如果您喜欢AppTemplate，或感觉AppTemplate帮助到了您，可以点右上角“Star”支持一下，您的支持就是我的动力，谢谢 :smiley:<p>
 您也可以扫描下面的二维码，请作者喝杯咖啡 :coffee:
 <div>
-<img src="https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/wx_pay.png">
+<img src="https://github.com/Alembertcn/Apptemplate/blob/main/android/app/release/wx_pay.png" width="60%">
 </div>
