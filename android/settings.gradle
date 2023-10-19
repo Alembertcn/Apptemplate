@@ -1,7 +1,13 @@
-include ':app', ':lib_common', ':module_rn', ':lib_umeng'
+include ':app', ':lib_common', /*':module_rn',*/ ':lib_umeng'
 //include ':react-native-vector-icons'
 //project(':react-native-vector-icons').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-vector-icons/android')
 
 
 rootProject.name='AppTemplate'
-apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+//apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':module_option'
+include ':smartTable'
+project(':smartTable').projectDir = new File(settingsDir, './smartTable/form')
+
+
+include ':module_custom_v'

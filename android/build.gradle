@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    apply from: './gfile/config.gradle'
+    apply from: "$rootDir/gradle/config.gradle"
 
     repositories {
 //        google()
@@ -18,6 +18,7 @@ buildscript {
         classpath "com.android.tools.build:gradle:$versions.gralde"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
         classpath "com.google.dagger:hilt-android-gradle-plugin:$versions.daggerHilt"
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
 
 //        classpath "com.tencent.bugly:tinker-support:$versions.tinkerSupport"
 
@@ -29,8 +30,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-//        maven { url 'https://maven.aliyun.com/repository/public/' }
         mavenCentral()
+        maven { url 'https://maven.aliyun.com/repository/google' }
         jcenter()
         maven { url 'https://jitpack.io' }
         maven { url 'https://repo1.maven.org/maven2/' }
@@ -49,10 +50,4 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
-}
-
-ext {
-    signingEnabled = false
-
-    tinkerEnabled = false
 }
