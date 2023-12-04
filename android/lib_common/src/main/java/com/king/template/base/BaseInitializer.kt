@@ -5,7 +5,7 @@ import com.king.template.CommonInitializer
 
 /**
  * detail: App Startup Initializer
- * @author Shh
+ * @author Hai
  * 其他 Library、Module 继承该类进行实现
  * 内部自动要求先进行初始化 [CoreInitializer] 模块
  */

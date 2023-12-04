@@ -62,7 +62,7 @@ class App : Application() {
 
         AppInitializer.getInstance(this)
             .initializeComponent(CommonInitializer::class.java)
-            .initBuildConfig(BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE)
+//            .initBuildConfig(BuildConfig.VERSION_NAME,BuildConfig.VERSION_CODE)
 
     }
 

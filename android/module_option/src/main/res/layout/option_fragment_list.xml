@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--  时间选择器  -->
+    <com.google.android.material.tabs.TabLayout
+        app:tabMode="scrollable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:text="2021/02/12" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+
+    <!--    塞选选择器-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@color/design_default_color_primary"
+        android:padding="10dp" />
+    <!-- 列表内容 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- 表头 -->
+        <HorizontalScrollView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <!-- 表体 -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -84,12 +84,13 @@ class HomeActivity : BaseActivity<HomeViewModel, HomeActivityBinding>() {
         HomeMenu.MENU2 -> TabFragment.newInstance(
             getString(R.string.app_name),
             arrayOf("Tab1", "Tab2"),
-            showToolbar = true,
-            showBack = false
+            showToolbar = false,
+            showBack = true
         ) {
             when (it) {
-                0 -> MenuFragment.newInstance("Tab1", false)
-                else -> MenuFragment.newInstance("Tab2", false)
+                0 -> ARouter.getInstance().build(RouterConstants.FRAGMENT_OPTION_LIST).navigation() as Fragment
+//                    MenuFragment.newInstance("Tab1", false)
+                else -> GirdListDemoFragment.newInstance("Tab2", false)
             }
         }
         HomeMenu.MENU3 -> MenuListFragment.newInstance(getString(R.string.home_menu3))

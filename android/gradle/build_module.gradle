@@ -1,14 +1,17 @@
 def isModule = modularName == project.name
-println("modularName $modularName ${project.name} $isModule")
-if (isModule){
+def isApp = 'app' == project.name
+if (isModule || isApp){
     apply plugin: 'com.android.application'
 }else{
     apply plugin: 'com.android.library'
 }
 
 apply plugin: 'kotlin-android'
-//apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-parcelize'
+if(project.name.startsWith("module_") && project.name !="module_rn"){
+    apply plugin: 'kotlin-android-extensions'
+}else{
+    apply plugin: 'kotlin-parcelize'
+}
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 
@@ -20,16 +23,16 @@ kapt {
 }
 
 android {
-    compileSdkVersion rootProject.ext.compileSdk
-    buildToolsVersion rootProject.ext.buildTools
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        if(isModule){
+        if(isModule && !isApp){
             applicationId "com.king.template.${project.name}"
         }
 
-        minSdkVersion rootProject.ext.minSdk
-        targetSdkVersion rootProject.ext.targetSdk
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode rootProject.ext.appVersionCode
         versionName rootProject.ext.appVersionName
 
@@ -51,16 +54,15 @@ android {
         pickFirst '**/*.so'
     }
 
-    if(isModule){
+    if(isModule || isApp){
         signingConfigs {
             config  {
                 //读取配置文件
-                storeFile file("$rootDir/gfile/sign.keystore")
+                storeFile file("${rootProject.rootDir}/gradle/sign.keystore")
                 keyAlias rootProject.ext.keyAlias
                 keyPassword rootProject.ext.keyPassword
                 storePassword rootProject.ext.storePassword
             }
-
         }
     }
 
@@ -130,6 +132,6 @@ dependencies {
 }
 
 if(isModule){
-    apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+//    apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 }
 

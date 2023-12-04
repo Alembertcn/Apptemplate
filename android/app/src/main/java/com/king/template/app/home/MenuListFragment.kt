@@ -119,7 +119,7 @@ class MenuListFragment : ListFragment<ImgMenu, MenuListViewModel, MenuListFragme
             MenuType.MENU_1 -> ARouter.getInstance().build(RouterConstants.PAGER_BASE_ACTIVITY).navigation(requireContext())//showToast(data.name)
             MenuType.MENU_2 -> showToast("${Constants.VERSION_NAME} ${Constants.VERSION_CODE}")
             MenuType.MENU_3 -> requireActivity().startActivity(Intent(context,TestActivity::class.java))
-            MenuType.MENU_4 -> showToast(data.name)
+            MenuType.MENU_4 -> ARouter.getInstance().build(RouterConstants.PAGER_OPITON_LIST).navigation(context)
             MenuType.MENU_5 -> showToast(data.name)
             // 其他 - 待实现
             else -> showToast(data.name)

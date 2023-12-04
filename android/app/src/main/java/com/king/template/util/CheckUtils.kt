@@ -1,5 +1,7 @@
 package com.king.template.util
 
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.util.regex.Pattern
 
 /**
@@ -27,6 +29,14 @@ object CheckUtils{
         val regex = "^(1[3456789])\\d{9}\$"
         return Pattern.matches(regex,phoneNumber)
     }
+
+    fun getFloatNoMoreThanTwoDigits(number: Float): String {
+        val format = DecimalFormat("#.##")
+        //舍弃规则，RoundingMode.FLOOR表示直接舍弃。
+        format.roundingMode = RoundingMode.FLOOR
+        return format.format(number)
+    }
+
 
 
 }

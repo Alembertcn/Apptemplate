@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <View
+            android:background="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:background="@android:color/primary_text_dark"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:background="@android:color/holo_purple"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+
+        <View
+            android:background="@android:color/holo_blue_bright"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
+</ScrollView>

@@ -1,9 +1,9 @@
-apply from: file("$rootDir/gfile/build_module.gradle")
+apply from: file("$rootDir/gradle/build_module.gradle")
 def isModule = modularName == project.name
 
 android {
-    compileSdkVersion rootProject.ext.compileSdk
-    buildToolsVersion buildTools
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion safeExtGetOrDefault('buildToolsVersion','30.0.3')
 
     if(isModule){
         defaultConfig {
@@ -14,10 +14,6 @@ android {
 }
 
 dependencies {
-    implementation "com.google.android.material:material:$versions.material"
-    implementation "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
-    implementation "androidx.recyclerview:recyclerview:$versions.recyclerview"
-
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "androidx.test.ext:junit:$versions.androidExtJunit"
     androidTestImplementation "androidx.test:runner:$versions.runner"
@@ -86,8 +82,9 @@ dependencies {
     implementation "com.king.image:imageviewer:$versions.imageviewer"
 
     if (isModule){
-        implementation project(':module_rn')
+//        implementation project(':module_rn')
         implementation project(':lib_umeng')
+        implementation project(':module_option')
     }
 
 }

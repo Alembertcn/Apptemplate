@@ -13,6 +13,7 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.content.ContextCompat
 import androidx.databinding.ViewDataBinding
 import com.alibaba.android.arouter.launcher.ARouter
+import com.king.android.ktx.core.startActivityForResultLauncher
 import com.king.base.util.StringUtils
 
 import com.king.frame.mvvmframe.base.BaseActivity
@@ -25,13 +26,15 @@ import com.king.template.app.account.CodeLoginActivity
 import com.king.template.app.account.LoginActivity
 import com.king.template.app.home.HomeActivity
 import com.king.template.constant.RouterConstants
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.components.SingletonComponent
 import es.dmoral.toasty.Toasty
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
  */
 abstract class BaseActivity<VM : BaseViewModel<out BaseModel>,VDB : ViewDataBinding> : BaseActivity<VM,VDB>(){
-
     fun getApp() = application as App
 
     fun setToolbarTitle(title: String?){

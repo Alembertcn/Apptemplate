@@ -1,16 +1,19 @@
-//App
-
 rootProject.ext {
     appVersionCode = 1
     appVersionName = "1.0.0"
-    buildTools = "30.0.3"
-    compileSdk = 31
-    minSdk = 21
-    targetSdk = 31
+    buildToolsVersion = "30.0.3"
+    compileSdkVersion = 31
+    minSdkVersion = 21
+    targetSdkVersion = 31
     modularName = "app"
     keyAlias = "htstock"
     keyPassword = "huatong123456CTF"
     storePassword = "huatong123456CTF"
+    signingEnabled = false
+
+    safeExtGetOrDefault =  {prop, fallback->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
 }
 
 // App dependencies

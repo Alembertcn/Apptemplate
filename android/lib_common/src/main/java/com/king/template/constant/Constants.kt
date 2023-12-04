@@ -1,13 +1,17 @@
 package com.king.template.constant
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import kotlin.properties.Delegates
 
 /**
  * @author <a href="mailto:jenly1314@gmail.com">Jenly</a>
  */
 object Constants {
+
 
     // 由于构建lib无法获取下面两个 这里考虑编译器直接修改赋值 先只在app模块代码赋值
     var VERSION_NAME: String=""
@@ -71,4 +75,7 @@ object Constants {
     const val KEY_TEXT = "key_text"
 
     //---------------------------------------------
+    lateinit var APP: Context
+
+    var currentAc: Activity?=null
 }

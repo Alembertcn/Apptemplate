@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tbLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:tabGravity="start"
+            app:tabIndicator="@drawable/option_tab_indicator"
+            app:tabIndicatorColor="@color/fit_black"
+            app:tabIndicatorFullWidth="false"
+            app:tabIndicatorGravity="center"
+            app:tabIndicatorHeight="30dp"
+            app:tabMode="scrollable"
+            app:tabPaddingEnd="4dp"
+            app:tabPaddingStart="4dp"
+            app:tabRippleColor="@android:color/transparent"
+            app:tabSelectedTextColor="@color/fit_white"
+            app:tabTextAppearance="@style/TabLayoutTextAppearance"
+            app:tabTextColor="@color/text_color_7c">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   item1 fffffffff " />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="item1" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:layout_width="match_parent"
+            app:justifyContent="space_between"
+            android:layout_height="wrap_content"
+            app:flexDirection="row">
+
+            <Button
+                android:id="@+id/btnOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="排序" />
+
+            <Button
+                android:id="@+id/btnOrder2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="排序倒叙" />
+
+            <Button
+                android:id="@+id/btnOrder3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="网络请求" />
+
+
+            <Button
+                android:id="@+id/btnOrder4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="改变正股最新价格" />
+
+            <Button
+                android:id="@+id/btnOrder5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="序列化测试" />
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <com.bin.david.form.component.FullHeightSmartTable
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="-- 暂无更多数据 --" />
+    </LinearLayout>
+</ScrollView>
